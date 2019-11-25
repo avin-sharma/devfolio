@@ -5,12 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { HTMLProps } from "react"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
+import Helmet, { HelmetDatum } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+// https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-helmet/v4/index.d.ts
+
+interface Props {
+  description?: string
+  lang: string
+  meta: []
+  title: string
+}
+
+function SEO({ description, lang, meta, title }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
