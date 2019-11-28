@@ -22,6 +22,17 @@ Another thing to keep in mind is the difference between `.ts` and `.tsx` file ty
 
 - Feature and work are all on trello board please assign yourself to the card that you are working on so that everyone knows and move the card to done when you are done working on it. If you do not have the link to trello let me know I will send it to you.
 
+## How to get help
+
+- GatsbyJS has pretty solid documentation, look at their official documentation first. [Gatsby Docs](https://www.gatsbyjs.org/docs/).
+- I am planning to use Material UI to make our life easier since we need a little bit of styling and orientation. Everything does not have to use MaterialUI its just there for convinience, we will use it wherever its easier to use it than styling the component by hand in CSS. [Material UI learning resources](https://material-ui.com/getting-started/learn/).
+
+## Architecture of the project
+
+The idea is to have the UI and store everything on firebase. Once the user decides to download the file get the details and add it to the other folder we have.
+
+The other folder will contain a full fleged website and will populate the itself based on files in some set locations when its run. Remember we are giving them the code of the website, that means we can create a website that will fetch data from a file called projects.json to populate the projects section of the website.
+
 *GODSPEED* and *GOODLUCK*!
 
 
