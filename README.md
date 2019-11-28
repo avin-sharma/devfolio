@@ -1,3 +1,30 @@
+## How to run the project
+
+The project is written in typescript, now in the class the way we did TypeScript is we would create these typscript files run the compiler and have the output files and then run them later.
+
+Here we do **NOT** do that, just write code in typescript files and do `npm start` it just works.
+
+Another thing to keep in mind is the difference between `.ts` and `.tsx` file types, if you are using JSX(any kind of html tags in the file) then make sure your file is of the type `.tsx` otherwise `.ts`. More often than not we would be writing react code so `.tsx` would be the way to go.
+
+## Coding style guide + tips
+
+- To make everyone's life easier we are going to try and avoid writing lots of code in a single file. In react that mean your component should do a single thing and it should do it really well. I like to keep visual and logic in separate components so for example we want to display a list of cards(each with a few fields like name etc), I would create 3 or 4 components where they call eachother in the following order CardsListContainer -> CardsList -> CardContainer -> Card. In the example the container components have logic and states in them, the normal components are purely visual containing html and props. Do not be afraid of nesting components
+
+- Make sure you have your own branch on github and work on small small feature and request a pull request after you have made something. Working on the same files create conflicts while merging one branch to another. Hence working on smaller feature and cycle might be useful here
+
+- Master branch should **ALWAYS** be functional. **NEVER** work on the master branch directly. Before you start working make sure you pull from the master branch to have the latest version of the project in case any modifications have been made while you were not working on the project.
+
+- You can handle branches however you like, you can create a branch in your name or on the feature you are working on. 
+  1. One of the common workflows is to create branch and delete it after it gets pulled in the master branch and create new branch named after the feature you are working on in the future.
+  2. Another would to keep using a single branch, the drawback here is that after the master branch has been updated from someone else's PR(pull request) you have to rebase your branch(which is overwrite the code in your branch with master branches code).
+
+  My suggestion would to work on small features or work on different files so that there is no overlap of work and no conflicts while merging into the master branch. An example of how this would happen is Lets assume I am working on a feature and so are you on a different feature, but while doing that we made small changes in App.js on the same components, git/github would then be confused which change should I write to the master branch, your or mine? Lets just try and avoid merge conflicts for now.
+
+- Feature and work are all on trello board please assign yourself to the card that you are working on so that everyone knows and move the card to done when you are done working on it. If you do not have the link to trello let me know I will send it to you.
+
+*GODSPEED* and *GOODLUCK*!
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
