@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "devfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple webapp to create a developer porfolio quickly.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Avin Sharma",
   "dependencies": {
+    "@material-ui/core": "^4.7.0",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-manifest": "^2.2.27",
