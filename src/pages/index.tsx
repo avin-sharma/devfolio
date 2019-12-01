@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import Login from "../components/Login/Login"
+import Login from "../components/Authentication/Authentication"
 
 
 // const IndexPage = () => (
@@ -21,15 +21,22 @@ import Login from "../components/Login/Login"
 //   </Layout>
 // )
 
+// Material UI Button, uses Gatsby navigate to go to app
+// instead of the <Link> tag as link changes the look of the button.
+const displayAppButton = () => {
+  return <Button variant="contained" color="primary" onClick={()=>{
+    navigate("app")
+    }}>
+      App
+    </Button>
+  }
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Landing Page</h1>
-    <Button variant="contained" color="primary" onClick={()=>{
-      navigate("app")
-    }}>
-      App
-    </Button>
+    {displayAppButton()}
+    
   </Layout>
 )
 
