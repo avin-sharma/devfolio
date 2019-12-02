@@ -1,7 +1,11 @@
-const firebase = require("firebase")
+// Firebase imports
+var firebase = require("firebase/app");
+require("firebase/auth");
+import firebaseConfig from '../firebaseConfig'
+let firebaseApp: any;
 
-const isUserSignedIn = () => {
-    var user = firebase.auth().currentUser;
+const isUserLoggedIn = async() => {
+    var user = await getFirebase().auth().currentUser;
     if (user) {
         // User is signed in.
         return true;
@@ -11,6 +15,17 @@ const isUserSignedIn = () => {
     }
 }
 
-module.exports = {
-    isUserSignedIn
+const getFirebase = () => {
+    if (firebaseApp){
+        return firebaseApp;
+    }
+
+    // Does this need async/await?
+    firebaseApp = firebase.initializeApp(firebaseConfig);
+    return firebaseApp
+}
+
+export {
+    isUserLoggedIn,
+    getFirebase
 }

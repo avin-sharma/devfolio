@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-const firebase = require("firebase")
+import {navigate} from "gatsby";
+
+import {getFirebase} from '../../utility'
+const firebase = getFirebase()
 
 function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("")
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault();
         if (password != rePassword){
             alert("Passwords did not match!")
             return
         }
-        firebase.auth()
+        await firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .catch(function(error: { code: any; message: any; }) {
             // Handle Errors here.
@@ -20,6 +23,7 @@ function Signup() {
             const errorMessage = error.message;
             alert(errorMessage);
           });
+          navigate("/app/login")
     }
 
     return (
