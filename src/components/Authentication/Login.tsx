@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import {navigate} from "gatsby";
-const firebase = require("firebase");
+
+import {getFirebase} from '../../utility'
+const firebase = getFirebase()
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault();
         
-        firebase.auth()
+        await firebase.auth()
         .signInWithEmailAndPassword(email, password)
         .catch(function(error: { code: any; message: any; }) {
             // Handle Errors here.
@@ -17,7 +19,7 @@ function Login() {
             const errorMessage = error.message;
             alert(errorMessage);
           });
-          navigate("app/")
+        navigate("/app")
     }
 
     return (

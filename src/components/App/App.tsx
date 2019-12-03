@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { navigate } from "gatsby";
 import Button from '@material-ui/core/Button';
-const firebase = require("firebase")
+
+import { getFirebase } from '../../utility'
+const firebase = getFirebase()
 
 const displayLogOutButton = () => {
     return <Button variant="contained" color="primary" onClick={()=>{
+        console.log("Log out clicked!")
         firebase.auth().signOut().then(function() {
             // Sign-out successful.
-            navigate("app")
+            navigate("/app")
           }).catch(function(error: { code: any; message: any; }) {
             // An error happened.
             const errorCode = error.code;

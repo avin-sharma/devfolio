@@ -1,7 +1,9 @@
 // This component renders a login form.
 // And maybe distributes a login token maybe?
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import {navigate} from 'gatsby'
+
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -11,6 +13,8 @@ import Box from '@material-ui/core/Box';
 
 import Login from './Login'
 import Signup from './Signup'
+
+const {isUserLoggedIn} = require("../../utility")
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,6 +54,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function Authentication(){
+    
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
