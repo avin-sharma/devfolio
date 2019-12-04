@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import { navigate } from "gatsby";
 import Button from '@material-ui/core/Button';
+import Grid, { GridSpacing } from '@material-ui/core/Grid';
+import EditBar from '../EditBar/EditBar'
+import Preview from '../Preview/Preview'
 
 import { getFirebase } from '../../utility'
 const firebase = getFirebase()
@@ -27,6 +30,14 @@ function App () {
         <div>
             <h1>App rendered!</h1>
             {displayLogOutButton()}
+            <Grid container>
+              <Grid item xs={4}>
+                <EditBar />
+              </Grid>
+              <Grid item xs={8}>
+                <Preview />
+              </Grid>
+            </Grid>
         </div>
 
     )

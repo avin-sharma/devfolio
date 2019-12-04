@@ -32,14 +32,17 @@ function Signup() {
                 Email:
                 <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
             </label>
+            <br/>
             <label>
                 Password:
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
             </label>
+            <br/>
             <label>
                 Confirm Password:
                 <input type="password" value={rePassword} onChange={e => setRePassword(e.target.value)}/>
             </label>
+            <br/>
             <input type="submit" value="Submit" />
         </form>
     )
