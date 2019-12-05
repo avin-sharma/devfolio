@@ -25,7 +25,7 @@ import Login from "../components/Authentication/Authentication"
 // instead of the <Link> tag as link changes the look of the button.
 const displayAppButton = () => {
   return <Button variant="contained" color="primary" onClick={()=>{
-    navigate("app")
+    navigate("/app")
     }}>
       App
     </Button>

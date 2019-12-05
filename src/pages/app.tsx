@@ -10,7 +10,7 @@ const {isUserLoggedIn, getFirebase} = require("../utility")
 const firebase = getFirebase()
 
 const App = () => {
-    
+  
     useEffect(() =>{
         firebase.auth().onAuthStateChanged(function(user: any) {
             if (user) {
