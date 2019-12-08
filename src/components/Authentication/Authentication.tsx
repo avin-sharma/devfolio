@@ -1,16 +1,21 @@
 // This component renders a login form.
 // And maybe distributes a login token maybe?
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import {navigate} from 'gatsby'
+
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { Paper } from '@material-ui/core';
 
 import Login from './Login'
 import Signup from './Signup'
+
+const {isUserLoggedIn} = require("../../utility")
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -28,6 +33,7 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      align="center"
       {...other}
     >
       <Box p={3}>{children}</Box>
@@ -50,6 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function Authentication(){
+    
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -59,12 +66,16 @@ function Authentication(){
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                <Tab label="Login" {...a11yProps(0)} />
-                <Tab label="Signup" {...a11yProps(1)} />
+            <Paper square>
+                <Tabs value={value} 
+                onChange={handleChange} 
+                aria-label="Login / Signup"
+                textColor="primary"
+                centered>
+                  <Tab label="Login" {...a11yProps(0)} />
+                  <Tab label="Signup" {...a11yProps(1)} />
                 </Tabs>
-            </AppBar>
+            </Paper>
             <TabPanel value={value} index={0}>
                 <Login />
             </TabPanel>

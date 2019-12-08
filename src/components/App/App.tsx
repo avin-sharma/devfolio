@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { navigate } from "gatsby";
 import Button from '@material-ui/core/Button';
-const firebase = require("firebase")
+import Grid, { GridSpacing } from '@material-ui/core/Grid';
+import EditBar from '../EditBar/EditBar'
+import Preview from '../Preview/Preview'
+
+import { getFirebase } from '../../utility'
+const firebase = getFirebase()
 
 const displayLogOutButton = () => {
     return <Button variant="contained" color="primary" onClick={()=>{
+        console.log("Log out clicked!")
         firebase.auth().signOut().then(function() {
             // Sign-out successful.
-            navigate("app")
+            navigate("/app")
           }).catch(function(error: { code: any; message: any; }) {
             // An error happened.
             const errorCode = error.code;
@@ -24,6 +30,14 @@ function App () {
         <div>
             <h1>App rendered!</h1>
             {displayLogOutButton()}
+            <Grid container>
+              <Grid item xs={4}>
+                <EditBar />
+              </Grid>
+              <Grid item xs={8}>
+                <Preview />
+              </Grid>
+            </Grid>
         </div>
 
     )
