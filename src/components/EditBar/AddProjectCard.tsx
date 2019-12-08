@@ -10,14 +10,10 @@ import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 
-class Project {
-    title = "";
-    description = "";
-    technologies: String[] = [];
-    link = ""
-}
+import Project from './Project'
 
-function AddProjectCard(props:{key: number, project: Project}){
+function AddProjectCard(props:{index: number, project: Project, allProjects: Project[], setProjects: React.Dispatch<React.SetStateAction<Project[]>>}){
+
     const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         formControl: {
@@ -49,7 +45,7 @@ function AddProjectCard(props:{key: number, project: Project}){
     },
     };
 
-    const technologies = [
+    const allTechnologies = [
     'React.js',
     'GraphQL',
     'JavaScript',
@@ -70,22 +66,41 @@ function AddProjectCard(props:{key: number, project: Project}){
     const [technologiesUsed, setTechnologiesUsed] = React.useState<string[]>([]);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [link, setLink] = useState('')
 
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
         setTechnologiesUsed(event.target.value as string[]);
+        updateAllProjects(title, description, event.target.value as string[], link)
     };
 
+    const updateAllProjects = (newTitle: string, newDescription: string, newTechnologies: string[], newLink: string) =>{
+        props.setProjects(props.allProjects.map(function(value, index){
+            if(index === props.index){
+                let proj = new Project(newTitle, newDescription, newTechnologies, newLink)
+                console.log(proj)
+                return proj
+            }
+            console.log(value)
+            return value
+        }))
+    }
 
     return (
         <Card>
             <CardContent>
                 Project Title:
                 <br/>
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+                <input type="text" value={title} onChange={e => {
+                    setTitle(e.target.value)
+                    updateAllProjects(e.target.value, description, technologiesUsed, link)
+                    }}/>
                 <br/>
                 Description of the project:
                 <br/>
-                <textarea value={description} onChange={e => setDescription(e.target.value)} />
+                <textarea value={description} onChange={e => {
+                    setDescription(e.target.value)
+                    updateAllProjects(title, e.target.value, technologiesUsed, link)
+                    }} />
                 <br/>
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-mutiple-chip-label">Technologies</InputLabel>
@@ -105,13 +120,20 @@ function AddProjectCard(props:{key: number, project: Project}){
                     )}
                     MenuProps={MenuProps}
                     >
-                    {technologies.map(name => (
+                    {allTechnologies.map(name => (
                         <MenuItem key={name} value={name} style={getStyles(name, technologiesUsed, theme)}>
                         {name}
                         </MenuItem>
                     ))}
                     </Select>
-            </FormControl>
+                </FormControl>
+                <br/>
+                Link:
+                <br/>
+                <input type="text" value={link} onChange={e => {
+                    setLink(e.target.value)
+                    updateAllProjects(title, description, technologiesUsed, e.target.value)
+                    }}/>
             </CardContent>
             <CardActions>
                 <Button variant="contained" color="secondary">
