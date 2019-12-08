@@ -5,9 +5,9 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Chip from '@material-ui/core/Chip';
 
 import Project from './Project'
@@ -85,6 +85,12 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
         }))
     }
 
+    const deleteProject = () => {
+        props.setProjects(props.allProjects.filter(function(value, index){
+            return index !== props.index
+        }))
+    }
+
     return (
         <Card>
             <CardContent>
@@ -136,9 +142,9 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
                     }}/>
             </CardContent>
             <CardActions>
-                <Button variant="contained" color="secondary">
-                    Add Project
-                </Button>
+            <IconButton aria-label="delete" onClick={deleteProject} >
+              <DeleteIcon fontSize="small" htmlColor="#FF0000" />
+            </IconButton>
             </CardActions>
         </Card>
     )
