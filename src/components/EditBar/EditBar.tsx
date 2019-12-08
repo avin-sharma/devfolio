@@ -15,7 +15,7 @@ function EditBar(){
             {projects.map(function(project, index) {
                     return <AddProjectCard key={index} index={index} project={project} allProjects={projects} setProjects={setProjects}/>
                 })}
-            <Fab color="primary" aria-label="add">
+            <Fab size="small" color="primary" aria-label="add">
                 <AddIcon onClick={()=>{
                     setProjects([...projects, new Project("", "", [], "")])
                 }}/>
