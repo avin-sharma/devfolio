@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Chip from '@material-ui/core/Chip';
 
-import Project from './Project'
+import Project from '../Project'
 
 function AddProjectCard(props:{index: number, project: Project, allProjects: Project[], setProjects: React.Dispatch<React.SetStateAction<Project[]>>}){
 
