@@ -10,7 +10,7 @@ import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 
-import Project from './Project'
+import Project from '../Project'
 
 function AddProjectCard(props:{index: number, project: Project, allProjects: Project[], setProjects: React.Dispatch<React.SetStateAction<Project[]>>}){
 

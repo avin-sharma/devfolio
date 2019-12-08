@@ -3,30 +3,30 @@ import {Typography, Container, Fab} from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add';
 
 import AddProjectCard from './AddProjectCard'
-import Project from './Project'
+import Project from '../Project'
 
 import { MContext } from '../Context/Context'
 
 
-function EditBar(){
-    const [projects, setProjects] = useState<Project[]>([])
+function EditBar(props: {projects:Project[], setProjects: React.Dispatch<React.SetStateAction<Project[]>>}){
+    
     let key = 0
 
     return(
         <Container>
-            {projects.map(function(project, index) {
-                    return <AddProjectCard key={index} index={index} project={project} allProjects={projects} setProjects={setProjects}/>
+            {props.projects.map(function(project, index) {
+                    return <AddProjectCard key={index} index={index} project={project} allProjects={props.projects} setProjects={props.setProjects}/>
                 })}
             <Fab color="primary" aria-label="add">
                 <AddIcon onClick={()=>{
-                    setProjects([...projects, new Project("", "", [], "")])
+                    props.setProjects([...props.projects, new Project("", "", [], "")])
                 }}/>
             </Fab>
-            <MContext.Consumer>
+            {/* <MContext.Consumer>
                 {(context) => (
                     <button onClick={()=>{context.setMessage(projects)}}>Save</button>
                 )}
-            </MContext.Consumer>
+            </MContext.Consumer> */}
         </Container>
     )
 }
