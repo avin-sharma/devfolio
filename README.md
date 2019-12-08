@@ -1,5 +1,10 @@
 ## How to run the project
 
+*** WINDOWS USERS *** Please refer to https://www.gatsbyjs.org/docs/gatsby-on-windows/ for any issues you face. The short version is that BEFORE you run npm install, first open windows powershell as admin and run the 'npm install windows-build-tools -g' command. If you get an error when running npm start, then try running the following sequence of commands:
+rm -rf node_modules/ .cache/
+npm install
+npm start
+
 The project is written in typescript, now in the class the way we did TypeScript is we would create these typscript files run the compiler and have the output files and then run them later.
 
 Here we do **NOT** do that, just write code in typescript files and do `npm start` it just works.
