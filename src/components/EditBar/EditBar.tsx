@@ -5,6 +5,8 @@ import AddIcon from '@material-ui/icons/Add';
 import AddProjectCard from './AddProjectCard'
 import Project from './Project'
 
+import { MContext } from '../Context/Context'
+
 
 function EditBar(){
     const [projects, setProjects] = useState<Project[]>([])
@@ -20,6 +22,11 @@ function EditBar(){
                     setProjects([...projects, new Project("", "", [], "")])
                 }}/>
             </Fab>
+            <MContext.Consumer>
+                {(context) => (
+                    <button onClick={()=>{context.setMessage(projects)}}>Save</button>
+                )}
+            </MContext.Consumer>
         </Container>
     )
 }
