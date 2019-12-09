@@ -63,10 +63,10 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
 
     const classes = useStyles();
     const theme = useTheme();
-    const [technologiesUsed, setTechnologiesUsed] = React.useState<string[]>([]);
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [link, setLink] = useState('')
+    const [technologiesUsed, setTechnologiesUsed] = React.useState<string[]>(props.project.technologies);
+    const [title, setTitle] = useState(props.project.title)
+    const [description, setDescription] = useState(props.project.description)
+    const [link, setLink] = useState(props.project.link)
 
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
         setTechnologiesUsed(event.target.value as string[]);
