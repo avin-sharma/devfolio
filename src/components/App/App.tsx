@@ -43,7 +43,6 @@ function App () {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
-            <Checkout />
         </div>
 
     )
