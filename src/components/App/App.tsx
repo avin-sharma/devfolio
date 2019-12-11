@@ -78,6 +78,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
+            <Checkout />
         </div>
 
     )
