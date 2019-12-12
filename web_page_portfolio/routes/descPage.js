@@ -13,6 +13,12 @@ const data = [
         description: "2",
         technologies: ["3", "4", "5"],
         link: "6"
+    },
+    {
+        title: "gg",
+        description: "wp",
+        technologies: ["I", "AM", "DONE"],
+        link: "bye"
     }
 ]
 
