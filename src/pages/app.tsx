@@ -54,7 +54,7 @@ const App = () => {
         {/* <Details path="/app/details" /> */}
         
         <RouterPage path="/app/login" pageComponent={<Login />} />
-        <RouterPage path="/app" pageComponent={<Default user={user} savedProjects={savedProjects}/>} />
+        <RouterPage path="/app" pageComponent={<Default user={user} projects={savedProjects}/>} />
       </Router>
     </Layout>
   )

@@ -34,7 +34,7 @@ const displayLogOutButton = () => {
 }
 
 
-function App (props: {user: any, savedProjects: Project[]}) {
+function App (props: {user: any, projects: Project[]}) {
   var database = firebase.database();
   const [projects, setProjects] = useState<Project[]>([])
   const [loaded, setLoaded] = useState(false)
@@ -78,7 +78,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
-            <Checkout />
+            <Checkout projects={projects}/>
         </div>
 
     )

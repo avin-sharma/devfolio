@@ -1,5 +1,6 @@
 import React from "react"
 import { navigate } from "@reach/router"
+var fs = require('browserify-fs');
 
 const buttonStyles = {
   fontSize: "13px",
@@ -17,7 +18,7 @@ const Checkout = class extends React.Component {
   // You can find your key in the Dashboard:
   // https://dashboard.stripe.com/account/apikeys
   componentDidMount() {
-    this.stripe = window.Stripe("pk_test_8txIhEap5013Kpdjq4QYRP0l00nxLwFpqg")
+    // this.stripe = window.Stripe("pk_test_8txIhEap5013Kpdjq4QYRP0l00nxLwFpqg")
   }
   async redirectToCheckout(event) {
     event.preventDefault()
@@ -34,7 +35,20 @@ const Checkout = class extends React.Component {
     return (
       <button
         style={buttonStyles}
-        onClick={event => this.redirectToCheckout(event)}
+        onClick={
+          event => {
+            // this.redirectToCheckout(event)
+            console.log(JSON.stringify(this.props.projects, null, 2))
+            // fs.writeFile('data.txt', JSON.stringify(this.props.projects, null, 2) , 'utf-8');
+            fs.mkdir('/home', function() {
+              fs.writeFile('/home/hello-world.txt', 'Hello world!\n', function() {
+                fs.readFile('/home/hello-world.txt', 'utf-8', function(err, data) {
+                  console.log(data);
+                });
+              });
+            });
+          }
+        }
       >
         DOWNLOAD MY WEBPAGE
       </button>
