@@ -6,6 +6,7 @@ import EditBar from '../EditBar/EditBar'
 import Preview from '../Preview/Preview'
 import MyProvider from '../Context/Context'
 import Project from '../Project'
+import Checkout from '../Stripe/Stripe'
 
 
 import { getFirebase } from '../../utility'
@@ -77,6 +78,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
+            <Checkout />
         </div>
 
     )
