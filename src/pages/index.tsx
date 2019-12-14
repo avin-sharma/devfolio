@@ -27,16 +27,20 @@ const displayAppButton = () => {
   return <Button variant="contained" color="primary" onClick={()=>{
     navigate("/app")
     }}>
-      App
+      Get Started Now!
     </Button>
   }
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Landing Page</h1>
+    <h1>Developer Portfolio Builder</h1>
+    <p>
+      Make your own web porfolio with ease! Just create an account & enter your desired project information. Get a preview of your web portfolio on the side as you add more projects and finally download and run your very own website!
+    </p>
     {displayAppButton()}
-    
+    <br />
+    <br />
   </Layout>
 )
 
