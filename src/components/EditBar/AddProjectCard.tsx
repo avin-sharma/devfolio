@@ -94,7 +94,7 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
     return (
         <Card>
             <CardContent>
-                <label for="title">
+                <label htmlFOR="title">
                     Project Title:
                 </label>
                 <br/>
@@ -136,7 +136,7 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
                     </Select>
                 </FormControl>
                 <br/>
-                <label for="link">
+                <label htmlFOR="link">
                     Link:
                 </label>
                 <br/>
