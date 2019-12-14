@@ -208,6 +208,10 @@ function App (props: {user: any, savedProjects: Project[]}) {
                 </Grid>
             </Grid>
             <br />
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <Checkout projects={projects}/>
         </div>
 
