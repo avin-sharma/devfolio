@@ -1,5 +1,5 @@
-import React from "react"
-import { navigate } from "@reach/router"
+import React from "react";
+import axios from "axios";
 
 const buttonStyles = {
   fontSize: "13px",
@@ -31,10 +31,50 @@ const Checkout = class extends React.Component {
     }
   }
   render() {
+    // return (
+    //   <button
+    //     style={buttonStyles}
+    //     onClick={event => this.redirectToCheckout(event)}
+    //   >
+    //     DOWNLOAD MY WEBPAGE
+    //   </button>
+    // )
+
     return (
       <button
         style={buttonStyles}
-        onClick={event => this.redirectToCheckout(event)}
+        onClick={
+          async event => {
+            // this.redirectToCheckout(event)
+            console.log(this.props.projects)
+            console.log(JSON.stringify(this.props.projects))
+            // const response = await axios.post(
+            //   `http://localhost:3000/api/tasks/update`, 
+            //   JSON.stringify(this.props.projects)
+            // );
+
+            let payload = this.props.projects.map(x => {
+              let y = {}
+              y["title"] = x.title
+              y["description"] = x.description
+              y["link"] = x.link
+              let a = {}
+              for (var i = 0; i < x.technologies.length; i++) {
+                a[i] = x.technologies[i]
+              }
+              y["technologies"] = a
+              return y
+            })
+            console.log(JSON.stringify(payload))
+
+            const response = await axios.post(
+              `http://localhost:3000/api/tasks/update`, 
+              JSON.stringify(payload)
+            );
+
+            console.log(response);
+          }
+        }
       >
         DOWNLOAD MY WEBPAGE
       </button>

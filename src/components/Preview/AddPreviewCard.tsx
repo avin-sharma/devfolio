@@ -14,7 +14,7 @@ function AddPreviewCard(props:{project: Project}){
                 Description of the project: {props.project.description}
                 <br/>
                 <br/>
-                Technologies: {props.project.technologies}
+                Technologies: {props.project.technologies.join(", ")}
                 <br/>
                 <br/>
                 Link: {props.project.link}

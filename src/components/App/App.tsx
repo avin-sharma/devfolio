@@ -62,7 +62,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
 
     return(
         <div>
-            <h1>App rendered!</h1>
+            <h1>Start Building Now!</h1>
             {displayLogOutButton()}
             <Button variant="contained" color="secondary" onClick={()=>{
               console.log("Save clicked!")
@@ -78,7 +78,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
-            <Checkout />
+            <Checkout projects={projects}/>
         </div>
 
     )

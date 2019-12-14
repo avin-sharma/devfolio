@@ -11,6 +11,10 @@ Here we do **NOT** do that, just write code in typescript files and do `npm star
 
 Another thing to keep in mind is the difference between `.ts` and `.tsx` file types, if you are using JSX(any kind of html tags in the file) then make sure your file is of the type `.tsx` otherwise `.ts`. More often than not we would be writing react code so `.tsx` would be the way to go.
 
+To run:
+1. Go to the back_end_file_manipulation directory and run npm install followed by npm start
+2. Now come back to the devfolio directory and run npm install followed by npm start
+
 ## Coding style guide + tips
 
 - To make everyone's life easier we are going to try and avoid writing lots of code in a single file. In react that mean your component should do a single thing and it should do it really well. I like to keep visual and logic in separate components so for example we want to display a list of cards(each with a few fields like name etc), I would create 3 or 4 components where they call eachother in the following order CardsListContainer -> CardsList -> CardContainer -> Card. In the example the container components have logic and states in them, the normal components are purely visual containing html and props. Do not be afraid of nesting components
