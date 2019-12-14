@@ -45,7 +45,7 @@ const Checkout = class extends React.Component {
         style={buttonStyles}
         onClick={
           async event => {
-            // this.redirectToCheckout(event)
+            this.redirectToCheckout(event)
             console.log(this.props.projects)
             console.log(JSON.stringify(this.props.projects))
             // const response = await axios.post(
