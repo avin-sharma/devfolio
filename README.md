@@ -1,8 +1,7 @@
 ## How to run the project
 
 To run:
-1. Go to the back_end_file_manipulation directory and run npm install followed by npm start
-2. Now come back to the devfolio directory and run npm install followed by npm start
+1. In the devfolio directory and run npm install followed by npm start
 
 Note: To test the stripe checkout you can follow https://stripe.com/docs/testing where sample credit card details are provided.
 

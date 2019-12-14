@@ -14,7 +14,7 @@ router.get("/zip", async (req, res) => {
 
   try {
     console.log("hi")
-    zipper.sync.zip(path.join('../', 'web_page_portfolio')).compress().save("pack.zip");
+    zipper.sync.zip(path.join('web_page_portfolio')).compress().save("pack.zip");
     res.download("pack.zip")
   } catch (e) {
     res.status(500).json({ error: e })
@@ -30,7 +30,7 @@ router.post("/update", async (req, res) => {
 
   console.log(JSON.parse("[" + Object.keys(newTaskData)[0] + "]"));
   console.log("[" + Object.keys(newTaskData)[0] + "]")
-  var fd = fs.openSync(path.join('../', 'web_page_portfolio', 'routes', 'data.js'), 'w+');
+  var fd = fs.openSync(path.join('web_page_portfolio', 'routes', 'data.js'), 'w+');
   var buffer = new Buffer("module.exports = {data: [" + Object.keys(newTaskData)[0] + "]}")
 
   fs.writeSync(fd, buffer, 0, buffer.length, 0); //write new data
