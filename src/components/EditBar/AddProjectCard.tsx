@@ -94,9 +94,11 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
     return (
         <Card>
             <CardContent>
-                Project Title:
+                <label for="title">
+                    Project Title:
+                </label>
                 <br/>
-                <input type="text" value={title} onChange={e => {
+                <input type="text" value={title} id="title" onChange={e => {
                     setTitle(e.target.value)
                     updateAllProjects(e.target.value, description, technologiesUsed, link)
                     }}/>
@@ -134,9 +136,11 @@ function AddProjectCard(props:{index: number, project: Project, allProjects: Pro
                     </Select>
                 </FormControl>
                 <br/>
-                Link:
+                <label for="link">
+                    Link:
+                </label>
                 <br/>
-                <input type="text" value={link} onChange={e => {
+                <input type="text" value={link} id="link" onChange={e => {
                     setLink(e.target.value)
                     updateAllProjects(title, description, technologiesUsed, e.target.value)
                     }}/>

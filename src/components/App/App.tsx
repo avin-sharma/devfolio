@@ -17,7 +17,7 @@ const _ = require('lodash');
 const displayLogOutButton = () => {
 
 
-    return <Button variant="contained" color="primary" onClick={()=>{
+    return <Button variant="contained" color="secondary" onClick={()=>{
         console.log("Log out clicked!")
         firebase.auth().signOut().then(function() {
             // Sign-out successful.
@@ -64,12 +64,14 @@ function App (props: {user: any, savedProjects: Project[]}) {
         <div>
             <h1>Start Building Now!</h1>
             {displayLogOutButton()}
-            <Button variant="contained" color="secondary" onClick={()=>{
+            <Button variant="contained" color="primary" onClick={()=>{
               console.log("Save clicked!")
               database.ref(`/user/${props.user.uid}/`).set(projects);
             }}>
               Save
             </Button>
+            <br />
+            <br />
             <Grid container>
                 <Grid item xs={4}>
                   <EditBar projects={projects} setProjects={setProjects}/>
@@ -78,6 +80,7 @@ function App (props: {user: any, savedProjects: Project[]}) {
                   <Preview projects={projects} setProjects={setProjects}/>
                 </Grid>
             </Grid>
+            <br />
             <Checkout projects={projects}/>
         </div>
 
