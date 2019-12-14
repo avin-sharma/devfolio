@@ -1,5 +1,11 @@
 ## How to run the project
 
+To run:
+1. Go to the back_end_file_manipulation directory and run npm install followed by npm start
+2. Now come back to the devfolio directory and run npm install followed by npm start
+
+Note: To test the stripe checkout you can follow https://stripe.com/docs/testing where sample credit card details are provided.
+
 *** WINDOWS USERS *** Please refer to https://www.gatsbyjs.org/docs/gatsby-on-windows/ for any issues you face. The short version is that BEFORE you run npm install, first open windows powershell as admin and run the 'npm install windows-build-tools -g' command. If you get an error when running npm start, then try running the following sequence of commands:
 rm -rf node_modules/ .cache/
 npm install
@@ -10,12 +16,6 @@ The project is written in typescript, now in the class the way we did TypeScript
 Here we do **NOT** do that, just write code in typescript files and do `npm start` it just works.
 
 Another thing to keep in mind is the difference between `.ts` and `.tsx` file types, if you are using JSX(any kind of html tags in the file) then make sure your file is of the type `.tsx` otherwise `.ts`. More often than not we would be writing react code so `.tsx` would be the way to go.
-
-To run:
-1. Go to the back_end_file_manipulation directory and run npm install followed by npm start
-2. Now come back to the devfolio directory and run npm install followed by npm start
-
-Note: To test the stripe checkout you can follow https://stripe.com/docs/testing where sample credit card details are provided.
 
 ## Coding style guide + tips
 
