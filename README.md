@@ -5,6 +5,9 @@ To run:
 
 Note: To test the stripe checkout you can follow https://stripe.com/docs/testing where sample credit card details are provided.
 
+To test, you can use the following accounts (or create your own account):
+1. Email: test@test.com, Password: password
+
 *** WINDOWS USERS *** Please refer to https://www.gatsbyjs.org/docs/gatsby-on-windows/ for any issues you face. The short version is that BEFORE you run npm install, first open windows powershell as admin and run the 'npm install windows-build-tools -g' command. If you get an error when running npm start, then try running the following sequence of commands:
 rm -rf node_modules/ .cache/
 npm install
