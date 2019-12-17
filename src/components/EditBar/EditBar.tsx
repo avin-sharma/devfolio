@@ -17,6 +17,7 @@ function EditBar(props: {projects:Project[], setProjects: React.Dispatch<React.S
             {props.projects.map(function(project, index) {
                     return <AddProjectCard key={index} index={index} project={project} allProjects={props.projects} setProjects={props.setProjects}/>
                 })}
+            <br />
             <Fab size="small" color="primary" aria-label="add">
                 <AddIcon onClick={()=>{
                     props.setProjects([...props.projects, new Project("", "", [], "")])

@@ -7,6 +7,9 @@
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
+    "axios": "^0.19.0",
+    "concurrently": "^5.0.1",
+    "express": "^4.17.1",
     "firebase": "^7.5.0",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
@@ -24,7 +27,8 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-stripe-checkout": "^2.6.3",
-    "react-with-firebase-auth": "^1.2.0"
+    "react-with-firebase-auth": "^1.2.0",
+    "zip-local": "^0.3.4"
   },
   "devDependencies": {
     "@types/node": "^12.12.12",
@@ -42,7 +46,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "concurrently --kill-others \"npm run develop\" \"npm run download\"",
+    "download": "node back_end_file_manipulation/app.js",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
